@@ -1,9 +1,9 @@
 {
-  "name": "Median",
-  "description": "Return the medium value of a cell",
-  "tags": ["basic statistics"],
+  "name": "MEM operator",
+  "description": "Marker Enrichment Modeling",
+  "tags": ["flow cytometry"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_operator"],
+  "urls": ["https://github.com/tercen/MEM_operator"],
   "properties": []
 }
 

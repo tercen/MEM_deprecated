@@ -35,15 +35,15 @@ do.mem <- function(df) {
   
   out <- MEM.matrix %>% as_tibble %>% gather(.ri, mem, -cluster)
   out$.ri <- as.numeric(gsub("X", "", out$.ri))
+  out$cluster <- as.factor(out$cluster)
   return(out)
   
 }
 
-df <- (ctx = tercenCtx()) %>% 
+(ctx = tercenCtx()) %>% 
   select(.ci, .ri, .y, .colorLevels)  %>%
-  do(do.mem(.)) 
-
-df %>%
+  do(do.mem(.)) %>%
   ctx$addNamespace() %>%
   ctx$save()
+
 

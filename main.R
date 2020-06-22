@@ -6,7 +6,6 @@ library(FlowSOM)
 library(MEM)
 
 do.mem <- function(df) {
-  
   data <- tidyr::spread(df, .ri, .y)
   data <- data[,-1]
   colnames(data)[1] <- "cluster"
@@ -34,11 +33,13 @@ do.mem <- function(df) {
   out$.ri <- as.numeric(gsub("X", "", out$.ri))
   out$cluster <- as.factor(out$cluster)
   return(out)
-  
 }
 
 (ctx = tercenCtx()) %>% 
-  select(.ci, .ri, .y, .colorLevels)  %>%
+  select(.ci, .colorLevels, .ri, .y)  %>%
+  group_by(.ci,.colorLevels, .ri) %>%
+  summarise(.y = mean(.y)) %>%
+  ungroup() %>%
   do(do.mem(.)) %>%
   ctx$addNamespace() %>%
   ctx$save()

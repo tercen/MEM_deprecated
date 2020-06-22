@@ -9,7 +9,6 @@ options("tercen.workflowId" = "d945b82176ce8b251b3ab7bfde01eb60")
 options("tercen.stepId"     = "722a5c71-d05e-42e2-ac2c-02bd17852c40")
 
 do.mem <- function(df) {
-  # reshape2::acast(.ci ~ .ri, value.var='.y', fill=NaN, fun.aggregate=mean) %>% 
   data <- tidyr::spread(df, .ri, .y)
   data <- data[,-1]
   colnames(data)[1] <- "cluster"

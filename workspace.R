@@ -5,11 +5,11 @@ library(flowCore)
 library(FlowSOM)
 library(MEM)
 
-options("tercen.workflowId" = "a2ac2439e77ba78ceb8f9be37d016b99")
-options("tercen.stepId"     = "b6be261e-c536-495e-9ac4-d89c0da2dbe2")
+options("tercen.workflowId" = "d945b82176ce8b251b3ab7bfde01eb60")
+options("tercen.stepId"     = "722a5c71-d05e-42e2-ac2c-02bd17852c40")
 
 do.mem <- function(df) {
-  
+  # reshape2::acast(.ci ~ .ri, value.var='.y', fill=NaN, fun.aggregate=mean) %>% 
   data <- tidyr::spread(df, .ri, .y)
   data <- data[,-1]
   colnames(data)[1] <- "cluster"
@@ -37,11 +37,13 @@ do.mem <- function(df) {
   out$.ri <- as.numeric(gsub("X", "", out$.ri))
   out$cluster <- as.factor(out$cluster)
   return(out)
-  
 }
 
 (ctx = tercenCtx()) %>% 
-  select(.ci, .ri, .y, .colorLevels)  %>%
+  select(.ci, .colorLevels, .ri, .y)  %>%
+  group_by(.ci,.colorLevels, .ri) %>%
+  summarise(.y = mean(.y)) %>%
+  ungroup() %>%
   do(do.mem(.)) %>%
   ctx$addNamespace() %>%
   ctx$save()

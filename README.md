@@ -2,21 +2,26 @@
 
 ##### Description
 
-`Marker Enrichment Modeling` operator.
+`Marker Enrichment Modeling` operator for flow cytometry data.
+
 
 ##### Usage
 
 Input projection|.
 ---|---
-`y-axis`        | numeric, input data, per cell 
+`row`   | represents the variables (e.g. channels, markers)
+`col`   | represents the clusters (e.g. cells) 
+`colors`   | represents the groups (e.g. flowSOM clusters) 
+`y-axis`| is the value of measurement signal of the channel/marker
 
 Output relations|.
 ---|---
-`median`        | numeric, median of the input data
+`mem`| numeric, mem scores per row and per color (e.g. per channel/marker and per flowSOM clusters)
+`cluster`| character, cluster value
 
 ##### Details
 
-The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
+The operator is a wrapper for the `MEM` function of the `MEM` R package.
 
 #### References
 
@@ -28,4 +33,3 @@ https://github.com/cytolab/mem
 
 [flowsom_mst_shiny_operator](https://github.com/tercen/flowsom_mst_shiny_operator)
 
-#### Examples

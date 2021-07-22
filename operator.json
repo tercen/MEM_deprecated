@@ -1,6 +1,6 @@
 {
-  "name": "MEM operator",
-  "description": "Marker Enrichment Modeling",
+  "name": "MEM Score",
+  "description": "Marker Enrichment Modeling Score: Calculates a score which quantifys contextual feature enrichment of immune and cancer cell subsets from fluorescence and mass cytometry.",
   "tags": ["flow cytometry"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/MEM_operator"],

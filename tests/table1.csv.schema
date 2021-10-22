@@ -1,0 +1,20 @@
+{
+  "kind": "TableSchema",
+  "columns": [
+    {
+      "kind": "ColumnSchema",
+      "name": "test.cluster",
+      "type": "string"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": ".ri",
+      "type": "int32"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "test.mem",
+      "type": "double"
+    }
+    ]
+}

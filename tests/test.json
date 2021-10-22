@@ -1,0 +1,14 @@
+{
+  "kind": "OperatorUnitTest",
+  "name": "MEM",
+  "namespace": "test",
+  "propertyValues": [ ], 
+  "inputDataUri": "groups_series_measurement2_exp.tsv",
+  "outputDataUri": ["table1.csv","table2.csv"],
+  "columns": ["Observation"],
+  "rows": ["Variable"],
+  "colors": ["Group"],
+  "labels": [],
+  "yAxis": "Measurement",
+  "xAxis": ""
+}

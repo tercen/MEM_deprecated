@@ -2,7 +2,7 @@
 
 ##### Description
 
-`Marker Enrichment Modeling` operator for flow cytometry data.
+`Marker Enrichment Modeling` operator for flow cytometry data is designed to calculate enrichment scores.
 
 
 ##### Usage
@@ -21,7 +21,7 @@ Output relations|.
 
 ##### Details
 
-The operator is a wrapper for the `MEM` function of the `MEM` R package.
+The operator is a wrapper for the `MEM` function of the `MEM` R package.`MEM` generates readable labels that quantify the features enriched in a sample. The classic use of MEM is to identify multiple populations of cells and to compare each population to all of the other remaining cells from the original sample. MEM enrichment scores range from +10 (meaning greatly enriched) through 0 (meaning not enriched) to -10 (meaning greatly lacking).
 
 #### References
 

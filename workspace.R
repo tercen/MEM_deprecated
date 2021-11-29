@@ -7,7 +7,7 @@ library(MEM)
 
 
 options("tercen.workflowId" = "3af2d8241c5193c9f386b9ebc100d804")
-options("tercen.stepId"     = "0341888c-b673-458c-838e-1657a0d1e16d")
+options("tercen.stepId"     = "6e32952b-d4f8-4cb7-a0d7-e15c0d49fdd3")
 
 do.mem <- function(df) {
   data<-pivot_wider(df,names_from = .ri, values_from = .y)

@@ -2,7 +2,7 @@ library(tercen)
 library(dplyr)
 library(tidyr)
 library(flowCore)
-library(FlowSOM)
+#library(FlowSOM)
 library(MEM)
 
 do.mem <- function(df) {

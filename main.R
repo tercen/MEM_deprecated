@@ -29,10 +29,10 @@ do.mem <- function(df) {
     IQR.thresh = NULL
   )
   MEM.matrix_wf <- data.frame(MEM.values.uf_wf[[5]][[1]])
-  MEM.matrix_wf$.ci <- c(1:nrow(MEM.matrix_wf))-1
+  MEM.matrix_wf$.ci <- c(1:nrow(MEM.matrix_wf))-1L
   
-  out<-pivot_longer(MEM.matrix_wf,cols =c(colnames(MEM.matrix_wf),-.ci), names_to = ".ri", values_to = "value")
-  out$.ri <- as.numeric(gsub("X", "", out$.ri))
+  out<-pivot_longer(MEM.matrix_wf,cols =c(colnames(MEM.matrix_wf),-.ci), names_to = ".ri", values_to = "mem")
+  out$.ri <- as.integer(gsub("X", "", out$.ri))
   return(out)
 }
 

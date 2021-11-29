@@ -9,11 +9,11 @@
     {
       "kind": "ColumnSchema",
       "name": ".ri",
-      "type": "double"
+      "type": "int32"
     },
     {
       "kind": "ColumnSchema",
-      "name": "test.value",
+      "name": "test.mem",
       "type": "double"
     }
     ]

@@ -9,7 +9,7 @@
     {
       "kind": "ColumnSchema",
       "name": ".ri",
-      "type": "double"
+      "type": "int32"
     },
     {
       "kind": "ColumnSchema",

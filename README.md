@@ -10,14 +10,12 @@
 Input projection|.
 ---|---
 `row`   | represents the variables (e.g. channels, markers)
-`col`   | represents the clusters (e.g. cells) 
-`colors`   | represents the groups (e.g. flowSOM clusters) 
+`col`   | represents the clusters (e.g. flowSOM clusters) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
 Output relations|.
 ---|---
 `mem`| numeric, mem scores per row and per color (e.g. per channel/marker and per flowSOM clusters)
-`cluster`| character, cluster value
 
 ##### Details
 

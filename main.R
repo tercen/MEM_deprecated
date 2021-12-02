@@ -39,7 +39,7 @@ do.mem <- function(df) {
 ctx <- tercenCtx()
 
 ctx %>% 
-  select(.sids,.ci, .ri, .y) %>% 
+  select(.xLevels,.ci, .ri, .y) %>% 
   do(do.mem(.)) %>%
   ctx$addNamespace() %>%
   ctx$save()

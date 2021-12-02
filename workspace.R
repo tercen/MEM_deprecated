@@ -4,10 +4,11 @@ library(tidyr)
 library(flowCore)
 #library(FlowSOM)
 library(MEM)
+library(tictoc)
 
-
-options("tercen.workflowId" = "3af2d8241c5193c9f386b9ebc100d804")
-options("tercen.stepId"     = "6e32952b-d4f8-4cb7-a0d7-e15c0d49fdd3")
+tic("sleeping")
+options("tercen.workflowId" = "f119a84e79d66805c986d2fe4c0a1164")
+options("tercen.stepId"     = "95157069-f197-4a65-be15-5937b40b137a")
 
 do.mem <- function(df) {
   data<-pivot_wider(df,names_from = .ri, values_from = .y)
@@ -16,7 +17,7 @@ do.mem <- function(df) {
   cluster<-data[,1]
   data <- data[, c(seq_along(colnames(data))[-1], 1)] #cluster must be last column for MEM...
   data<-as.matrix(data)
-  
+
   MEM.values.uf_wf = MEM(
     data,
     #dat@exprs,
@@ -32,6 +33,7 @@ do.mem <- function(df) {
     add.fileID = FALSE,
     IQR.thresh = NULL
   )
+
   MEM.matrix_wf <- data.frame(MEM.values.uf_wf[[5]][[1]])
   MEM.matrix_wf$.ci <- c(1:nrow(MEM.matrix_wf))-1L
   
@@ -40,12 +42,15 @@ do.mem <- function(df) {
   return(out)
 }
 
+
 ctx <- tercenCtx()
 
 ctx %>% 
-  select(.sids,.ci, .ri, .y) %>% 
+  select(.xLevels,.ci, .ri, .y)%>% 
   do(do.mem(.)) %>%
   ctx$addNamespace() %>%
   ctx$save()
 
+
+toc()
 
